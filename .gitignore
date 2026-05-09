@@ -1,11 +1,10 @@
-# Python
+# --- Python ---
 __pycache__/
 *.py[cod]
 *$py.class
-venv/
+*.so
+.Python
 env/
-.env
-.venv/
 build/
 develop-eggs/
 dist/
@@ -21,15 +20,54 @@ wheels/
 *.egg-info/
 .installed.cfg
 *.egg
+MANIFEST
+venv/
+.venv/
+pip-log.txt
+pip-delete-this-directory.txt
+.toast
+.lucid
+.replit
+.nlp
 
-# Secrets
+# --- Databases / Local Storage ---
+*.sqlite3
+*.db
+backend/alembic/versions/*.pyc
+
+# --- Environment & Secrets (CRITICAL) ---
 .env
+.env.*
+!.env.example
 backend/.env
+frontend/.env
+secrets.json
 
-# IDEs
+# --- IDEs & Editors ---
 .vscode/
 .idea/
+*.swp
+*.swo
+*~
+.vscode/settings.json
+.vscode/tasks.json
+.vscode/launch.json
+.vscode/extensions.json
+.vscode/*.log
 
-# OS
+# --- System Files ---
 .DS_Store
+.DS_Store?
+._*
 Thumbs.db
+desktop.ini
+
+# --- Project Specific ---
+backend/__pycache__/
+frontend/__pycache__/
+backend/venv/
+frontend/venv/
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
