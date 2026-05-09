@@ -15,17 +15,22 @@ import requests
 import streamlit as st
 
 _DEFAULT_BASE_URL = "http://localhost:8000"
-_TIMEOUT_SECONDS = 5
+_TIMEOUT_SECONDS = 60
 
 
 class APIClient:
     """Thin wrapper around requests for ScamShield backend calls."""
 
     def __init__(self, base_url: str | None = None) -> None:
-        self._base_url = (
-            base_url
-            or os.getenv("STREAMLIT_API_BASE_URL", _DEFAULT_BASE_URL)
-        ).rstrip("/")
+        # Check Streamlit secrets first, then environment variables, then default
+        if base_url:
+            self._base_url = base_url
+        elif "STREAMLIT_API_BASE_URL" in st.secrets:
+            self._base_url = st.secrets["STREAMLIT_API_BASE_URL"]
+        else:
+            self._base_url = os.getenv("STREAMLIT_API_BASE_URL", _DEFAULT_BASE_URL)
+        
+        self._base_url = self._base_url.rstrip("/")
 
     # ------------------------------------------------------------------
     # Internal helpers
