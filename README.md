@@ -9,6 +9,18 @@
 
 ---
 
+## 🖼️ Screenshots
+
+### Home / Input Screen
+
+![AI ScamDeductor Home Screen](docs/images/home-screen.png)
+
+### Analysis Result Screen
+
+![AI ScamDeductor Analysis Result Screen](docs/images/analysis-result.png)
+
+---
+
 ## ✨ Key Features
 
 - **🌐 Comprehensive Website Scan:** Analyzes domain age, SSL certificate validity, suspicious TLDs, and brand impersonation signals.
